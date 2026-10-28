@@ -1,0 +1,8 @@
+{
+  "name": "cyber-risk-platform",
+  "version": "2.0.0",
+  "description": "Cyber Risk Prioritization Platform",
+  "scripts": {
+    "start": "python run.py"
+  }
+}

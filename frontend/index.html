@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Risk Prioritization Platform | SBOM Intelligence</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <div class="logo-icon glow-pulse">
+          <img src="logo.jpg" alt="CRPP Logo" style="width:52px;height:52px;object-fit:contain;border-radius:10px;display:block;">
+        </div>
+        <div>
+          <h1 class="logo-title"><span class="logo-gradient">CYBER RISK</span> PRIORITIZATION PLATFORM</h1>
+          <p class="logo-subtitle"><i class="fa-solid fa-bolt text-cyan"></i> SBOM Intelligence • Contextual Prioritization Engine</p>
+        </div>
+      </div>
+
+      <nav class="nav-steps">
+        <div class="nav-step active" id="navStep1">
+          <span class="step-num">1</span>
+          <span class="step-label">Input Data</span>
+        </div>
+        <div class="nav-line"></div>
+        <div class="nav-step" id="navStep2">
+          <span class="step-num">2</span>
+          <span class="step-label">Processing Engine</span>
+        </div>
+        <div class="nav-line"></div>
+        <div class="nav-step" id="navStep3">
+          <span class="step-num">3</span>
+          <span class="step-label">Risk Dashboard</span>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Enterprise Icon Toolbar -->
+        <div class="enterprise-toolbar">
+          <button id="btnScanHistory" class="icon-btn" title="Scan History & Versioning">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span class="icon-btn-label">History</span>
+          </button>
+          <button id="btnCompareScans" class="icon-btn" title="Multi-Application Risk Comparison">
+            <i class="fa-solid fa-code-compare"></i>
+            <span class="icon-btn-label">Compare</span>
+          </button>
+          <button id="btnCicdIntegration" class="icon-btn" title="CI/CD Pipeline Integration">
+            <i class="fa-solid fa-code-branch"></i>
+            <span class="icon-btn-label">CI/CD</span>
+          </button>
+        </div>
+
+        <div class="header-divider"></div>
+
+        <!-- Theme Toggle -->
+        <button id="btnThemeToggle" class="icon-btn icon-btn-theme" title="Toggle Theme">
+          <i class="fa-solid fa-sun"></i>
+          <span class="icon-btn-label" id="themeToggleText">Light</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-content">
+
+    <!-- ========================================== -->
+    <!-- SCREEN 1: INPUT LAYER                      -->
+    <!-- ========================================== -->
+    <section id="screenInput" class="screen-section active">
+      <div class="hero-banner">
+        <h2>Identify What Matters. Prioritize What's Critical. Fix What's Important.</h2>
+        <p>Upload your Application details, SBOM ingredient lists, and enterprise Vulnerability databases (supports
+          multi-file batch upload up to 500+ vulnerabilities).</p>
+        <div class="hero-demo-action" style="margin-top: 28px;">
+          <button id="btnLoadDemo" class="btn btn-demo">
+            <i class="fa-solid fa-bolt"></i> Load Standard Demo
+          </button>
+        </div>
+      </div>
+
+      <div class="input-grid">
+
+        <!-- Input Card 1: Application Context -->
+        <div class="card input-card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa-solid fa-cube text-accent"></i> 1. Application Context</div>
+            <span class="badge badge-info">Context Data</span>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="appName"><i class="fa-solid fa-file-signature"></i> Application Name</label>
+              <input type="text" id="appName" class="form-control" placeholder="e.g. E-Commerce Payment Gateway"
+                value="E-Commerce Payment Gateway App">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="businessCriticality"><i class="fa-solid fa-building-columns"></i> Business
+                  Importance</label>
+                <select id="businessCriticality" class="form-control">
+                  <option value="High" selected>Critical / High Revenue</option>
+                  <option value="Medium">Medium / Internal Support</option>
+                  <option value="Low">Low / Non-Critical</option>
+                </select>
+              </div>
+
+              <div class="form-group col">
+                <label for="internetExposure"><i class="fa-solid fa-globe"></i> Internet Exposure</label>
+                <select id="internetExposure" class="form-control">
+                  <option value="High" selected>Public Internet (Exposed)</option>
+                  <option value="Medium">Internal Network (Restricted)</option>
+                  <option value="Low">Isolated Air-Gapped</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="appType"><i class="fa-solid fa-layer-group"></i> Application Type</label>
+              <select id="appType" class="form-control">
+                <option value="Web Application" selected>Web Application / API Service</option>
+                <option value="Mobile Backend">Mobile Backend API</option>
+                <option value="Microservice">Microservice Container</option>
+                <option value="Desktop CLI">Desktop / CLI Application</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Card 2: SBOM File Upload -->
+        <div class="card input-card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa-solid fa-file-arrow-up text-accent"></i> 2. Software Bill of Materials (SBOM)</div>
+            <span class="badge badge-info">CycloneDX / SPDX / Dep Files</span>
+          </div>
+          <div class="card-body">
+            <!-- Custom File Drop Zone Area -->
+            <div id="areaSbomUpload">
+              <div class="drop-zone" id="sbomDropZone">
+                <i class="fa-solid fa-file-code drop-icon"></i>
+                <p class="drop-text">Drag & drop your SBOM or Dependency file here (or click to browse)</p>
+                <p class="drop-subtext">Supports CycloneDX, SPDX, requirements.txt, package.json, pom.xml, go.mod, CSV</p>
+                <input type="file" id="fileSbom" accept=".json,.xml,.txt,.lock,.mod,.gradle,.csv" multiple hidden>
+              </div>
+            </div>
+
+            <div class="file-status hidden" id="statusSbom" style="margin-top: 12px;">
+              <i class="fa-solid fa-circle-check text-success"></i>
+              <span id="nameSbom">sbom.json</span>
+              <span class="badge badge-info" id="formatSbom" style="margin-left: 8px;">CycloneDX</span>
+              <span class="badge badge-success float-end" id="countSbom">0 Components</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Card 3: Vulnerability Data Upload -->
+        <div class="card input-card">
+          <div class="card-header">
+            <div class="card-title"><i class="fa-solid fa-shield-halved text-accent"></i> 3. Vulnerability Intelligence (Universal Ingestion)</div>
+            <span class="badge badge-danger">CSV / SARIF / JSON / XML</span>
+          </div>
+          <div class="card-body">
+            <div class="drop-zone" id="vulnDropZone">
+              <i class="fa-solid fa-shield-virus drop-icon"></i>
+              <p class="drop-text">Drag & drop Vulnerability file(s) here (or click to browse)</p>
+              <p class="drop-subtext">Supports Qualys/Nessus CSV, GitHub SARIF 2.1.0, Trivy/Grype/Snyk JSON, VEX XML, or CVE lists</p>
+              <input type="file" id="fileVuln" accept=".json,.csv,.tsv,.sarif,.xml,.txt" multiple hidden>
+            </div>
+            <div class="file-status hidden" id="statusVuln" style="margin-top: 12px;">
+              <i class="fa-solid fa-circle-check text-success"></i>
+              <span id="nameVuln">vulnerabilities.json</span>
+              <span class="badge badge-accent" id="formatVuln" style="margin-left: 8px;">Standard JSON</span>
+              <span class="badge badge-danger float-end" id="countVuln">0 Vulnerabilities</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Autonomous Scanning Mode Banner -->
+      <div id="autonomousBanner" class="autonomous-banner hidden" style="margin-top: 18px;">
+        <div class="autonomous-banner-inner">
+          <i class="fa-solid fa-wand-magic-sparkles banner-icon"></i>
+          <div>
+            <strong id="autonomousBannerTitle">Autonomous Threat Intelligence Mode Active</strong>
+            <p id="autonomousBannerDesc" style="margin: 3px 0 0; font-size: 0.88rem; opacity: 0.88;">
+              Only an SBOM was uploaded. The platform will automatically cross-match your components against live NVD & enterprise CVE threat databases!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Button Area -->
+      <div class="action-bar">
+        <button id="btnStartAnalysis" class="btn btn-primary btn-xl">
+          <i class="fa-solid fa-rocket"></i> Launch Risk Processing Engine
+        </button>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 2: PROCESSING PIPELINE VISUALIZER   -->
+    <!-- ========================================== -->
+    <section id="screenProcessing" class="screen-section">
+      <div class="processing-container">
+        <div class="processing-header">
+          <h2><i class="fa-solid fa-microchip spinner-icon"></i> Processing Engine Executing...</h2>
+          <p>Analyzing component hierarchy, matching CVE databases, and computing multi-factor risk scores.</p>
+        </div>
+
+        <!-- Pipeline Steps Progress -->
+        <div class="pipeline-grid">
+          <div class="pipeline-step" id="pstep1">
+            <div class="step-status-icon"><i class="fa-solid fa-gear"></i></div>
+            <div class="step-info">
+              <h4>1. SBOM Parser</h4>
+              <p>Extracting packages & version strings</p>
+            </div>
+          </div>
+
+          <div class="pipeline-step" id="pstep2">
+            <div class="step-status-icon"><i class="fa-solid fa-sitemap"></i></div>
+            <div class="step-info">
+              <h4>2. Component Identification</h4>
+              <p>Building normalized component index</p>
+            </div>
+          </div>
+
+          <div class="pipeline-step" id="pstep3">
+            <div class="step-status-icon"><i class="fa-solid fa-crosshair"></i></div>
+            <div class="step-info">
+              <h4>3. Vulnerability Matching</h4>
+              <p>Cross-referencing CVE local database</p>
+            </div>
+          </div>
+
+          <div class="pipeline-step" id="pstep4">
+            <div class="step-status-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="step-info">
+              <h4>4. Risk Scoring Engine</h4>
+              <p>Computing 5-factor weighted scores</p>
+            </div>
+          </div>
+
+          <div class="pipeline-step" id="pstep5">
+            <div class="step-status-icon"><i class="fa-solid fa-arrow-down-short-wide"></i></div>
+            <div class="step-info">
+              <h4>5. Prioritization Engine</h4>
+              <p>Ranking vulnerabilities by risk impact</p>
+            </div>
+          </div>
+
+          <div class="pipeline-step" id="pstep6">
+            <div class="step-status-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div class="step-info">
+              <h4>6. Remediation Recommender</h4>
+              <p>Generating fix advice & patch versions</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Terminal Log Area -->
+        <div class="card terminal-card">
+          <div class="terminal-header">
+            <span><i class="fa-solid fa-terminal"></i> Engine Execution Terminal</span>
+            <span class="live-indicator"><span class="dot"></span> LIVE LOGS</span>
+          </div>
+          <div class="terminal-body" id="terminalLogs">
+            <!-- Dynamic logs inserted here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SCREEN 3: EXECUTIVE RISK DASHBOARD         -->
+    <!-- ========================================== -->
+    <section id="screenDashboard" class="screen-section">
+
+      <!-- Skeleton UI Overlay during loading -->
+      <div id="skeletonDashboard" class="skeleton-container hidden">
+        <div class="skeleton-grid">
+          <div class="skeleton-card shimmer"></div>
+          <div class="skeleton-card shimmer"></div>
+          <div class="skeleton-card shimmer"></div>
+        </div>
+        <div class="skeleton-analytics shimmer"></div>
+        <div class="skeleton-table shimmer"></div>
+      </div>
+
+      <!-- Real Executive Dashboard Content -->
+      <div id="realDashboard">
+
+        <!-- Threshold Risk Alert Banner -->
+        <div id="thresholdAlertBanner" class="threshold-alert-banner hidden">
+          <div class="alert-content">
+            <i class="fa-solid fa-triangle-exclamation alert-icon"></i>
+            <div>
+              <h4 id="alertBannerTitle">🚨 CRITICAL RISK THRESHOLD EXCEEDED</h4>
+              <p id="alertBannerDesc">Application Risk Priority Score has crossed the enterprise safety threshold (Score
+                > 80). Immediate security patch intervention is recommended!</p>
+            </div>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btnSimulateWebhook">
+            <i class="fa-solid fa-bell"></i> Trigger Alert Webhook
+          </button>
+        </div>
+
+        <!-- Top Overview Dashboard Summary -->
+        <div class="dashboard-overview-grid">
+
+          <!-- App Info & Context Card -->
+          <div class="card summary-card app-summary">
+            <div class="summary-label">Target Application</div>
+            <h3 id="dashAppName">E-Commerce Payment Gateway App</h3>
+            <div class="app-tags">
+              <span class="tag" id="dashAppType"><i class="fa-solid fa-layer-group"></i> Web App</span>
+              <span class="tag tag-danger" id="dashAppExposure"><i class="fa-solid fa-globe"></i> Internet
+                Exposed</span>
+              <span class="tag tag-warning" id="dashAppCriticality"><i class="fa-solid fa-building-columns"></i>
+                Critical Business</span>
+            </div>
+          </div>
+
+          <!-- SVG Speedometer Radial Gauge Score Card -->
+          <div class="card summary-card risk-score-card">
+            <div class="score-container">
+              <div class="score-gauge-wrapper">
+                <svg class="score-gauge-svg" viewBox="0 0 140 140">
+                  <defs>
+                    <linearGradient id="gaugeGradCritical" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ff2a5f" />
+                      <stop offset="100%" stop-color="#e11d48" />
+                    </linearGradient>
+                    <linearGradient id="gaugeGradHigh" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ff7a00" />
+                      <stop offset="100%" stop-color="#d97706" />
+                    </linearGradient>
+                    <linearGradient id="gaugeGradMedium" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ffc700" />
+                      <stop offset="100%" stop-color="#ca8a04" />
+                    </linearGradient>
+                    <linearGradient id="gaugeGradLow" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#00e676" />
+                      <stop offset="100%" stop-color="#059669" />
+                    </linearGradient>
+                  </defs>
+                  <circle class="gauge-bg" cx="70" cy="70" r="54"></circle>
+                  <circle class="gauge-fill" id="scoreGaugeArc" cx="70" cy="70" r="54"></circle>
+                </svg>
+                <div class="gauge-text-overlay">
+                  <span class="score-value" id="dashScoreValue">0</span>
+                  <span class="score-max">/100</span>
+                </div>
+              </div>
+              <div class="score-details">
+                <span class="summary-label">Overall Risk Priority Score</span>
+                <div class="score-tier-badge" id="dashScoreTier">CALCULATING</div>
+                <p class="score-description" id="dashScoreDesc">Score based on CVSS (40%), Exposure (25%), Business
+                  Criticality (20%), Exploit (10%), Dependency (5%).</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vulnerability Severity Count Cards -->
+          <div class="card summary-card severity-counts-card">
+            <div class="summary-label">Vulnerabilities Detected</div>
+            <div class="severity-grid">
+              <div class="sev-box sev-critical" data-filter="CRITICAL">
+                <span class="sev-num" id="cntCritical">0</span>
+                <span class="sev-name">CRITICAL</span>
+              </div>
+              <div class="sev-box sev-high" data-filter="HIGH">
+                <span class="sev-num" id="cntHigh">0</span>
+                <span class="sev-name">HIGH</span>
+              </div>
+              <div class="sev-box sev-medium" data-filter="MEDIUM">
+                <span class="sev-num" id="cntMedium">0</span>
+                <span class="sev-name">MEDIUM</span>
+              </div>
+              <div class="sev-box sev-low" data-filter="LOW">
+                <span class="sev-num" id="cntLow">0</span>
+                <span class="sev-name">LOW</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Visual Analytics Row: 2D Heatmap & Severity Trend Bar Chart -->
+        <div class="dashboard-analytics-grid">
+
+          <!-- Interactive 2D Risk Heatmap Card -->
+          <div class="card analytics-card">
+            <div class="card-header">
+              <div class="card-title">
+                <i class="fa-solid fa-fire-flame-curved text-accent"></i> Interactive Risk Heatmap
+                <span class="subtext">(Component Category vs Severity Matrix)</span>
+              </div>
+              <button id="btnClearHeatmapFilter" class="btn btn-outline btn-sm hidden">
+                <i class="fa-solid fa-xmark"></i> Clear Cell Filter
+              </button>
+            </div>
+            <div class="heatmap-wrapper" id="riskHeatmap">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- Severity Distribution Bar Chart Card -->
+          <div class="card analytics-card">
+            <div class="card-header">
+              <div class="card-title">
+                <i class="fa-solid fa-chart-column text-accent"></i> Vulnerability Trend Bar Chart
+                <span class="subtext">(Distribution & Impact)</span>
+              </div>
+            </div>
+            <div class="chart-wrapper" id="severityTrendChart">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Dashboard Controls & Controls Bar -->
+        <div class="dashboard-controls-card card">
+          <div class="controls-wrapper">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="inputSearch" placeholder="Search package name (e.g. django) or CVE ID...">
+            </div>
+
+            <div class="filter-group">
+              <label><i class="fa-solid fa-filter"></i> Severity Filter:</label>
+              <button class="filter-btn active" data-filter="ALL">All</button>
+              <button class="filter-btn filter-critical" data-filter="CRITICAL">Critical</button>
+              <button class="filter-btn filter-high" data-filter="HIGH">High</button>
+              <button class="filter-btn filter-medium" data-filter="MEDIUM">Medium</button>
+            </div>
+
+            <div class="export-group">
+              <button class="btn btn-outline" id="btnExportCSV"><i class="fa-solid fa-file-csv"></i> Export CSV</button>
+              <button class="btn btn-outline" id="btnExportJSON"><i class="fa-solid fa-file-code"></i> Export
+                JSON</button>
+              <button class="btn btn-primary" id="btnNewAnalysis"><i class="fa-solid fa-rotate-left"></i> New
+                Scan</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Risk Priority List Table -->
+        <div class="card table-card table-hero-card">
+          <div class="card-header table-hero-header">
+            <div class="card-title text-hero-title">
+              <span class="hero-fire-badge"><i class="fa-solid fa-fire"></i> TOP PRIORITY</span>
+              <span class="title-text">Prioritized Security Remediation Action List</span>
+              <span class="subtext-pill"><i class="fa-solid fa-arrow-down-short-wide"></i> Ordered by Highest Cyber Risk Score</span>
+            </div>
+            <div class="table-header-tag"><i class="fa-solid fa-crosshair text-danger"></i> ACTIONABLE REMEDIATION MATRIX</div>
+          </div>
+          <div class="table-responsive">
+            <table class="risk-table">
+              <thead>
+                <tr>
+                  <th style="width: 55px; text-align: center;">Rank</th>
+                  <th style="width: 95px;">Risk Score</th>
+                  <th style="width: 140px;">CVE Identification</th>
+                  <th style="width: 130px;">Affected Component</th>
+                  <th style="width: 90px;">CVSS</th>
+                  <th style="width: 115px;">Exploitability</th>
+                  <th>Recommended Patch & Remediation Command</th>
+                  <th style="width: 115px; text-align: center;">Full Details</th>
+                </tr>
+              </thead>
+              <tbody id="tableRiskBody">
+                <!-- Rows dynamically inserted here -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Table Pagination Control Footer -->
+          <div class="table-pagination-bar">
+            <div class="pagination-info" id="paginationInfo">
+              Showing 0 to 0 of 0 vulnerabilities
+            </div>
+            <div class="pagination-controls">
+              <div class="per-page-select">
+                <label for="selectPerPage">Rows per page:</label>
+                <select id="selectPerPage" class="form-control form-control-sm">
+                  <option value="10">10</option>
+                  <option value="25" selected>25</option>
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                  <option value="ALL">All</option>
+                </select>
+              </div>
+              <div class="pagination-buttons" id="paginationPageBtns">
+                <!-- Page numbers rendered dynamically -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Remediation Action Details Modal -->
+  <div class="modal-overlay hidden" id="modalRemediation">
+    <div class="modal-card card">
+      <div class="modal-header">
+        <h3 id="modalTitle"><i class="fa-solid fa-shield-cat"></i> Remediation Recommendation Details</h3>
+        <button class="btn-close" id="btnCloseModal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Enterprise Feature 1: Scan History Drawer -->
+  <div class="modal-overlay hidden" id="drawerHistory">
+    <div class="modal-card card history-drawer-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-clock-rotate-left text-accent"></i> Scan History & Versioning</h3>
+        <button class="btn-close" id="btnCloseHistory"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+          Persisted scan results stored in SQLite database. Click any previous scan to load it into the dashboard.
+        </p>
+        <div id="historyListContainer" class="history-list">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enterprise Feature 2: Multi-Application Comparison Modal -->
+  <div class="modal-overlay hidden" id="modalCompare">
+    <div class="modal-card card compare-modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-code-compare text-accent"></i> Multi-Application Risk Comparison</h3>
+        <button class="btn-close" id="btnCloseCompare"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="compare-selectors-grid">
+          <div class="form-group">
+            <label><i class="fa-solid fa-layer-group"></i> Baseline Scan (Scan A):</label>
+            <select id="selectScanA" class="form-control">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label><i class="fa-solid fa-layer-group"></i> Target Scan (Scan B):</label>
+            <select id="selectScanB" class="form-control">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+        </div>
+        <div style="text-align: center; margin-bottom: 20px;">
+          <button id="btnExecuteCompare" class="btn btn-primary">
+            <i class="fa-solid fa-magnifying-glass-chart"></i> Compare Risk Metrics
+          </button>
+        </div>
+
+        <div id="compareResultsContainer">
+          <!-- Comparison output rendered here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enterprise Feature 3: CI/CD Integration Panel Modal -->
+  <div class="modal-overlay hidden" id="modalCicd">
+    <div class="modal-card card cicd-modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-code-branch text-accent"></i> CI/CD Pipeline & API Endpoint</h3>
+        <button class="btn-close" id="btnCloseCicd"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+          Automate SBOM vulnerability scanning in your Jenkins, GitHub Actions, or GitLab CI/CD pipelines via <code>POST /api/scan</code>.
+        </p>
+
+        <div style="margin-bottom: 20px;">
+          <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">
+            <i class="fa-brands fa-github"></i> GitHub Actions Workflow (<code>.github/workflows/cyber-risk.yml</code>)
+          </div>
+          <pre class="cli-code" style="display: block; padding: 14px; white-space: pre-wrap; font-size: 12px; line-height: 1.6;">
+name: Cyber Risk Prioritization Scan
+on: [push, pull_request]
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Execute Cyber Risk SBOM Prioritization Scan
+        run: |
+          curl -X POST http://127.0.0.1:8000/api/scan \
+            -H "Content-Type: application/json" \
+            -d '{"app_name": "${{ github.repository }}", "business_criticality": "High", "internet_exposure": "High", "app_type": "Microservice", "sbom_content": ${{ toJson(inputs.sbom) }}, "vuln_content": ${{ toJson(inputs.vulns) }}}' \
+            -o sarif_report.json
+      - name: Upload SARIF Result to GitHub Security Tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: sarif_report.json
+          </pre>
+        </div>
+
+        <div>
+          <div style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">
+            <i class="fa-solid fa-terminal"></i> cURL Command Line Integration
+          </div>
+          <pre class="cli-code" style="display: block; padding: 14px; white-space: pre-wrap; font-size: 12px;">
+curl -X POST http://127.0.0.1:8000/api/scan \
+  -H "Content-Type: application/json" \
+  -d @payload.json
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "components": [
+    {
+      "name": "log4j-core",
+      "version": "2.14.1",
+      "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+      "type": "library",
+      "isDirectDependency": true
+    },
+    {
+      "name": "django",
+      "version": "2.2.0",
+      "purl": "pkg:pypi/django@2.2.0",
+      "type": "framework",
+      "isDirectDependency": true
+    },
+    {
+      "name": "pyyaml",
+      "version": "5.3.1",
+      "purl": "pkg:pypi/pyyaml@5.3.1",
+      "type": "library",
+      "isDirectDependency": false
+    },
+    {
+      "name": "requests",
+      "version": "2.20.0",
+      "purl": "pkg:pypi/requests@2.20.0",
+      "type": "library",
+      "isDirectDependency": true
+    },
+    {
+      "name": "pillow",
+      "version": "8.1.0",
+      "purl": "pkg:pypi/pillow@8.1.0",
+      "type": "library",
+      "isDirectDependency": true
+    },
+    {
+      "name": "flask",
+      "version": "1.0.2",
+      "purl": "pkg:pypi/flask@1.0.2",
+      "type": "framework",
+      "isDirectDependency": true
+    },
+    {
+      "name": "spring-framework",
+      "version": "5.3.0",
+      "purl": "pkg:maven/org.springframework/spring-web@5.3.0",
+      "type": "framework",
+      "isDirectDependency": true
+    },
+    {
+      "name": "jackson-databind",
+      "version": "2.9.8",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8",
+      "type": "library",
+      "isDirectDependency": true
+    },
+    {
+      "name": "openssl",
+      "version": "1.1.1k",
+      "purl": "pkg:generic/openssl@1.1.1k",
+      "type": "system",
+      "isDirectDependency": false
+    },
+    {
+      "name": "lodash",
+      "version": "4.17.15",
+      "purl": "pkg:npm/lodash@4.17.15",
+      "type": "library",
+      "isDirectDependency": true
+    },
+    {
+      "name": "express",
+      "version": "4.16.4",
+      "purl": "pkg:npm/express@4.16.4",
+      "type": "framework",
+      "isDirectDependency": true
+    },
+    {
+      "name": "axios",
+      "version": "0.21.0",
+      "purl": "pkg:npm/axios@0.21.0",
+      "type": "library",
+      "isDirectDependency": true
+    },
+    {
+      "name": "react",
+      "version": "17.0.1",
+      "purl": "pkg:npm/react@17.0.1",
+      "type": "framework",
+      "isDirectDependency": true
+    },
+    {
+      "name": "numpy",
+      "version": "1.19.0",
+      "purl": "pkg:pypi/numpy@1.19.0",
+      "type": "library",
+      "isDirectDependency": true
+    },
+    {
+      "name": "scipy",
+      "version": "1.5.0",
+      "purl": "pkg:pypi/scipy@1.5.0",
+      "type": "library",
+      "isDirectDependency": true
+    },
+    {
+      "name": "urllib3",
+      "version": "1.26.4",
+      "purl": "pkg:pypi/urllib3@1.26.4",
+      "type": "library",
+      "isDirectDependency": true
+    },
+    {
+      "name": "fastapi",
+      "version": "0.65.0",
+      "purl": "pkg:pypi/fastapi@0.65.0",
+      "type": "framework",
+      "isDirectDependency": false
+    },
+    {
+      "name": "gunicorn",
+      "version": "20.0.4",
+      "purl": "pkg:pypi/gunicorn@20.0.4",
+      "type": "server",
+      "isDirectDependency": true
+    },
+    {
+      "name": "cryptography",
+      "version": "3.3.1",
+      "purl": "pkg:pypi/cryptography@3.3.1",
+      "type": "library",
+      "isDirectDependency": false
+    },
+    {
+      "name": "celery",
+      "version": "5.0.5",
+      "purl": "pkg:pypi/celery@5.0.5",
+      "type": "library",
+      "isDirectDependency": false
+    },
+    {
+      "name": "redis",
+      "version": "3.5.3",
+      "purl": "pkg:pypi/redis@3.5.3",
+      "type": "database",
+      "isDirectDependency": true
+    },
+    {
+      "name": "psycopg2",
+      "version": "2.8.6",
+      "purl": "pkg:pypi/psycopg2@2.8.6",
+      "type": "database",
+      "isDirectDependency": true
+    },
+    {
+      "name": "commons-collections",
+      "version": "3.2.1",
+      "purl": "pkg:maven/commons-collections/commons-collections@3.2.1",
+      "type": "library",
+      "isDirectDependency": false
+    },
+    {
+      "name": "struts2",
+      "version": "2.5.20",
+      "purl": "pkg:maven/org.apache.struts/struts2-core@2.5.20",
+      "type": "framework",
+      "isDirectDependency": false
+    },
+    {
+      "name": "netty",
+      "version": "4.1.42",
+      "purl": "pkg:maven/io.netty/netty-all@4.1.42",
+      "type": "library",
+      "isDirectDependency": false
+    }
+  ]
+}

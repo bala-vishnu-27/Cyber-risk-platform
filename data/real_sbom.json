@@ -1,0 +1,64 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-08-21T22:30:00Z",
+    "tools": [
+      {
+        "vendor": "CycloneDX",
+        "name": "sbom-generator",
+        "version": "2.1.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "name": "Production E-Commerce Core API",
+      "version": "3.1.0"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "django",
+      "version": "2.2.0",
+      "purl": "pkg:pypi/django@2.2.0",
+      "isDirectDependency": true
+    },
+    {
+      "type": "library",
+      "name": "pyyaml",
+      "version": "5.3.1",
+      "purl": "pkg:pypi/pyyaml@5.3.1",
+      "isDirectDependency": true
+    },
+    {
+      "type": "library",
+      "name": "requests",
+      "version": "2.20.0",
+      "purl": "pkg:pypi/requests@2.20.0",
+      "isDirectDependency": true
+    },
+    {
+      "type": "library",
+      "name": "pillow",
+      "version": "8.1.0",
+      "purl": "pkg:pypi/pillow@8.1.0",
+      "isDirectDependency": false
+    },
+    {
+      "type": "library",
+      "name": "log4j-core",
+      "version": "2.14.1",
+      "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+      "isDirectDependency": true
+    },
+    {
+      "type": "library",
+      "name": "flask",
+      "version": "1.0.2",
+      "purl": "pkg:pypi/flask@1.0.2",
+      "isDirectDependency": false
+    }
+  ]
+}

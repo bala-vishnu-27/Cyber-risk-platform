@@ -1,0 +1,70 @@
+{
+  "vulnerabilities": [
+    {
+      "cveId": "CVE-2021-44228",
+      "component": "log4j-core",
+      "affectedVersion": "2.14.1",
+      "fixedVersion": "2.17.1",
+      "cvssScore": 10.0,
+      "severity": "CRITICAL",
+      "exploitAvailable": true,
+      "description": "Apache Log4j2 JNDI features used in configuration, log messages, and parameters do not protect against attacker controlled LDAP and other JNDI related endpoints (Log4Shell).",
+      "publishedDate": "2021-12-10"
+    },
+    {
+      "cveId": "CVE-2020-7471",
+      "component": "django",
+      "affectedVersion": "2.2.0",
+      "fixedVersion": "2.2.10",
+      "cvssScore": 9.8,
+      "severity": "CRITICAL",
+      "exploitAvailable": true,
+      "description": "Django 2.2 before 2.2.10 allows SQL Injection via StringAgg aggregation function on PostgreSQL.",
+      "publishedDate": "2020-02-03"
+    },
+    {
+      "cveId": "CVE-2020-14343",
+      "component": "pyyaml",
+      "affectedVersion": "5.3.1",
+      "fixedVersion": "5.4",
+      "cvssScore": 9.8,
+      "severity": "CRITICAL",
+      "exploitAvailable": true,
+      "description": "Unsafe YAML deserialization vulnerability in PyYAML allows arbitrary code execution via FullLoader.",
+      "publishedDate": "2020-07-27"
+    },
+    {
+      "cveId": "CVE-2018-18074",
+      "component": "requests",
+      "affectedVersion": "2.20.0",
+      "fixedVersion": "2.20.1",
+      "cvssScore": 7.5,
+      "severity": "HIGH",
+      "exploitAvailable": true,
+      "description": "Requests package for Python sends HTTP Authorization headers to HTTPS hosts on redirect to HTTP hosts.",
+      "publishedDate": "2018-10-09"
+    },
+    {
+      "cveId": "CVE-2021-25292",
+      "component": "pillow",
+      "affectedVersion": "8.1.0",
+      "fixedVersion": "8.1.1",
+      "cvssScore": 7.5,
+      "severity": "HIGH",
+      "exploitAvailable": true,
+      "description": "Out-of-bounds read in Pillow TIFF decoder.",
+      "publishedDate": "2021-03-05"
+    },
+    {
+      "cveId": "CVE-2019-1010083",
+      "component": "flask",
+      "affectedVersion": "1.0.2",
+      "fixedVersion": "1.0.3",
+      "cvssScore": 5.3,
+      "severity": "MEDIUM",
+      "exploitAvailable": false,
+      "description": "Unexpected behavior when handling session cookies across subdomains.",
+      "publishedDate": "2019-07-17"
+    }
+  ]
+}

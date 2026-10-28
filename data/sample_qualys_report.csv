@@ -1,0 +1,11 @@
+CVE,Component,Installed Version,Fixed Version,CVSS Score,Severity,Exploit Available,Description
+CVE-2021-44228,log4j-core,2.14.1,2.17.1,10.0,CRITICAL,Yes,Apache Log4j2 JNDI features do not protect against attacker controlled LDAP and other JNDI related endpoints.
+CVE-2022-22965,spring-framework,5.3.0,5.3.18,9.8,CRITICAL,Yes,Spring Framework RCE Spring4Shell via DataBinder parameter binding on JDK9+.
+CVE-2019-10744,lodash,4.17.11,4.17.12,9.1,CRITICAL,Yes,Prototype pollution in lodash defaultsDeep function.
+CVE-2020-14343,pyyaml,5.3.1,5.4,8.8,HIGH,Yes,PyYAML FullLoader allows arbitrary code execution via custom tags.
+CVE-2021-3449,openssl,1.1.1k,1.1.1l,7.5,HIGH,No,OpenSSL TLS server crash via malicious ClientHello renegotiation.
+CVE-2020-7692,axios,0.21.0,0.21.1,7.2,HIGH,No,Axios SSRF vulnerability allows unauthorized intranet network requests.
+CVE-2019-14889,jackson-databind,2.9.8,2.9.10,7.0,HIGH,No,Jackson-databind polymorphic typing deserialization flaw.
+CVE-2021-32677,fastapi,0.65.0,0.65.2,5.3,MEDIUM,No,FastAPI ReDoS in parsing HTTP request headers.
+CVE-2018-18074,requests,2.20.0,2.20.1,5.0,MEDIUM,No,Requests sends HTTP basic auth credentials on cross-origin redirects.
+CVE-2021-33203,django,2.2.0,2.2.24,4.2,MEDIUM,No,Django potential directory traversal vulnerability in storage engine.
